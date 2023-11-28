@@ -1,14 +1,14 @@
-from django.contrib import admin
 from django.urls import path
-from product import views
 
+from product.views import product_list_api_view, reviews_list_api_view, category_list_api_view, product_detail_api_view, \
+    category_detail_api_view, reviews_detail_api_view, product_reviews_list_api_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/categories/', views.ctegory_list_api_view),
-    path('api/v1/products/', views.product_list_api_view),
-    path('api/v1/products/<int:id>/', views.product_deteil_api_view),
-    path('api/v1/categories/<int:id>/', views.category_deteil_api_view),
-    path('api/v1/reviews/', views.review_list_api_view),
-    path('api/v1/reviews/<int:id>/', views.review_deteil_api_view)
+    path('product/', product_list_api_view),
+    path('category/', category_list_api_view),
+    path('reviews/', reviews_list_api_view),
+    path('product/<int:id>/', product_detail_api_view),
+    path('category/<int:id>/', category_detail_api_view),
+    path('reviews/<int:id>/', reviews_detail_api_view),
+    path('product/reviews/', product_reviews_list_api_view)
 ]
